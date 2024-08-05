@@ -41,38 +41,6 @@ Content
    dfits_fitsort
 
 
-Change log
-==========
-
-**20.7.1**:
-        **MAJOR CHANGES!**
-
-        * Move from fitsio to astropy 4.0 as FITS header reading library
-        * Bug fix for terminal display when one of the keywords is not found in the fits header. It is replaced by '-'.
-        * You can now use *.fits.fz files [thanks to @vertighel for proposing this change!]
-        * You can now access the headers from different extenstions! (default is header 0, primary header)
-
-        Thanks to C. Herenz for the two tickets on github that triggered some changes in this version!
-
-        * Bug fix when there is an empty file next to the fits files and the '-f *' or '-f all' is called.
-        * Add a '-e' or '- -exact' flag to enforce the extracted keywords to **exactly** match the user-provided one (it will not take all the keywords containing the one given by the user). 
-
-**20.4.1**:
-        * Bug fix in display of one of the files does not have all the keywords
-
-**20.3.2**:
-        * change in keyword query
-        * update in documentation
-
-**19.6.1**:
-        * Bug fix with grepping
-
-**19.4.0**:
-        * The fitsio library v1.0.1 causes problem for the moment. The version 0.9.11 is therefore forced for the moment until a workaround is found.
-
-**19.3.4:** 
-        *.FST*, *.fst* and compressed FITS files (just compressed data, not the header), are allowed.
-
 What is dfitspy?
 ================
 
@@ -99,22 +67,6 @@ dfitspy is not perfect! It has been primarily developed for my private research 
 n the spirit of making the research process as transparent as possible and in the hope it can be used by
 other people. If you have any comment or anything you would like to be added to dfitspy, or, even better,
 if you want to modify it, you can either do it yourself or please feel free to contact me! ---> **rthomas@eso.org, the.spartan.proj@gmail.com**. In any case, you can find the source code `here <https://github.com/astrom-tom/dfitspy>`_.
-
-----
-
-.. warning::
-
-	**Copyright**
-
-	dfitspy is a free software: you can redistribute it and/or modify it under
-	the terms of the GNU General Public License as published by the Free Software Foundation,
-	version 3 of the License.
-
-	dfitspy is distributed without any warranty; without even the implied warranty of merchantability
-	or fitness for a particular purpose.  See the GNU General Public License for more details.
-
-	You should have received a copy of the GNU General Public License along with the program.
-	If not, see http://www.gnu.org/licenses/ .
 
 ----
 

@@ -62,11 +62,19 @@ If you get to use dfitspy for your work, please quote the JOSS `Paper <http://jo
 
 ----
 
-**Contribute!**
-dfitspy is not perfect! It has been primarily developed for my private research and I decided to release i
-n the spirit of making the research process as transparent as possible and in the hope it can be used by
-other people. If you have any comment or anything you would like to be added to dfitspy, or, even better,
-if you want to modify it, you can either do it yourself or please feel free to contact me! ---> **rthomas@eso.org, the.spartan.proj@gmail.com**. In any case, you can find the source code `here <https://github.com/astrom-tom/dfitspy>`_.
+.. warning::
+
+        **Copyright**
+
+        dfitspy is a free software: you can redistribute it and/or modify it under
+        the terms of the GNU General Public License as published by the Free Software Foundation,
+        version 3 of the License.
+
+        dfitspy is distributed without any warranty; without even the implied warranty of merchantability
+        or fitness for a particular purpose.  See the GNU General Public License for more details.
+
+        You should have received a copy of the GNU General Public License along with the program.
+        If not, see http://www.gnu.org/licenses/ .
 
 ----
 

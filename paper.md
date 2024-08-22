@@ -32,6 +32,10 @@ https://www.eso.org/sci/software/eclipse/eug/eug/node8.html). The main limitatio
 that they are stand-alone programs useable only in a terminal. They can not be used natively 
 inside another program. 
 
+
+
+# Statement of need
+
 The python module presented in this paper, ``dfitspy``, is a project that migrates the main dfits 
 and fitsort capabilities to python. It is a metadata searcher/displayer for FITS files. 
 As dfits and fitsort, ``dfitspy`` is able to display in the terminal the result of a metadata 
@@ -39,6 +43,8 @@ search and is able to grep certain values of keywords inside large samples of fi
 Therefore it can be used directly with the command line interface. Nevertheless, 
 ``dfitspy`` can be, and it is its strength, imported as a python module and the user can 
 use these functionnalities inside another python code or the python interpretor.
+
+
 
 
 # dfitspy as a terminal command

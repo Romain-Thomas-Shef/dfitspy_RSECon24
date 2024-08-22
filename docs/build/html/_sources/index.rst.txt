@@ -53,12 +53,13 @@ What is not dfitspy?
 ====================
 dfitspy does not read data inside fits file. Other libraries are doing this very efficiently and dfitspy is not made for that (see fitsio and astropy). It works only on the header and allows you to find common values in an efficient and convenient way. 
 
+----
 
-Acknowldgements and citation
-============================
-The python wrapper of the CFITSIO library has been made for the fitsio python library (`fitsio <https://github.com/esheldon/fitsio>`_) and is used in dfitspy.
-
-If you get to use dfitspy for your work, please quote the JOSS `Paper <http://joss.theoj.org/papers/10.21105/joss.01249>`_ [Journal of Open Source software]. Thanks!
+**Contribute!**
+dfitspy is not perfect! It has been primarily developed for my private research and I decided to release i
+n the spirit of making the research process as transparent as possible and in the hope it can be used by
+other people. If you have any comment or anything you would like to be added to dfitspy, or, even better,
+if you want to modify it, you can either do it yourself or please feel free to contact me! ---> **rthomas@eso.org, the.spartan.proj@gmail.com**. In any case, you can find the source code `here <https://github.com/astrom-tom/dfitspy>`_.
 
 ----
 

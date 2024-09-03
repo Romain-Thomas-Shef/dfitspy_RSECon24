@@ -56,7 +56,6 @@ dfitspy does not read data inside fits file. Other libraries are doing this very
 ----
 
 
-----
 
 .. warning::
 

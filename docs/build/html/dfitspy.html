@@ -16,7 +16,7 @@
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="_static/documentation_options.js?v=c7b4c2c5"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -54,10 +54,25 @@
 <li class="toctree-l1"><a class="reference internal" href="usage.html">dfitspy as an executable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage_module.html">dfitspy as a Python Module</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">dfitspy API functions</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">get files and keys functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#readfits-functions">readfits functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#display-function">display function</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tests-module">tests module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">get files and keys functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dfitspy.get_files_and_keys.get_files"><code class="docutils literal notranslate"><span class="pre">get_files()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dfitspy.get_files_and_keys.get_keys"><code class="docutils literal notranslate"><span class="pre">get_keys()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-dfitspy.readfits">readfits functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dfitspy.readfits.dfitsort"><code class="docutils literal notranslate"><span class="pre">dfitsort()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dfitspy.readfits.get_all_keyword"><code class="docutils literal notranslate"><span class="pre">get_all_keyword()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-dfitspy.display">display function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dfitspy.display.dfitsort_view"><code class="docutils literal notranslate"><span class="pre">dfitsort_view()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dfitspy.display.keywords_view"><code class="docutils literal notranslate"><span class="pre">keywords_view()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-dfitspy.tests">tests module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dfitspy.tests.test"><code class="docutils literal notranslate"><span class="pre">test()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dfits_fitsort.html">dfits and fitsort</a></li>
@@ -88,17 +103,191 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="get-files-and-keys-functions">
-<h1>get files and keys functions<a class="headerlink" href="#get-files-and-keys-functions" title="Link to this heading"></a></h1>
+  <section id="module-dfitspy.get_files_and_keys">
+<span id="get-files-and-keys-functions"></span><h1>get files and keys functions<a class="headerlink" href="#module-dfitspy.get_files_and_keys" title="Link to this heading"></a></h1>
+<p>This file creates the filelist depending on the user input as well as the keywords input</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="dfitspy.get_files_and_keys.get_files">
+<span class="sig-prename descclassname"><span class="pre">dfitspy.get_files_and_keys.</span></span><span class="sig-name descname"><span class="pre">get_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dire</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dfitspy.get_files_and_keys.get_files" title="Link to this definition"></a></dt>
+<dd><p>This function extracts the list of files based on the files
+and dire parameter.</p>
+<p>example: get_files([‘fil1.fits,file2.fits’] , ‘/home/Documents’)
+example: get_files([‘fil1.fits,file2.fits’])</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>files</strong><span class="classifier">list of str</span></dt><dd><p>list of files names (without path), it can be:</p>
+<p>[‘file1.fits,file2.fits,….’]</p>
+<p>[‘file1.fits’]</p>
+<p>[‘file1,fits’, ‘file2.fits’]</p>
+<p>[‘all’]</p>
+</dd>
+<dt><strong>dire</strong><span class="classifier">str</span></dt><dd><p>path of the directory to look in</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>allfiles</strong><span class="classifier">list</span></dt><dd><p>list of all the files</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dfitspy.get_files_and_keys.get_keys">
+<span class="sig-prename descclassname"><span class="pre">dfitspy.get_files_and_keys.</span></span><span class="sig-name descname"><span class="pre">get_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_string</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dfitspy.get_files_and_keys.get_keys" title="Link to this definition"></a></dt>
+<dd><p>This function extracts from a string the list of keys</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>keystring</strong><span class="classifier">string</span></dt><dd><p>keys to be requested by user, example:</p>
+<blockquote>
+<div><p>SEEING</p>
+<p>SEEING,AIRMASS</p>
+<p>SEEING,ARIMASS,OBID</p>
+</div></blockquote>
+<p>if a string contains dots, e.g, ESO.SEQ.ARM it will be
+transform to ESO SEQ ARM (with spaces)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>keys</strong><span class="classifier">list</span></dt><dd><p>list of keys (string)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="readfits-functions">
-<h1>readfits functions<a class="headerlink" href="#readfits-functions" title="Link to this heading"></a></h1>
+<section id="module-dfitspy.readfits">
+<span id="readfits-functions"></span><h1>readfits functions<a class="headerlink" href="#module-dfitspy.readfits" title="Link to this heading"></a></h1>
+<p>This file organises and reads the FITS files</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="dfitspy.readfits.dfitsort">
+<span class="sig-prename descclassname"><span class="pre">dfitspy.readfits.</span></span><span class="sig-name descname"><span class="pre">dfitsort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">listfiles</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">listkeys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grepping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HDU</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dfitspy.readfits.dfitsort" title="Link to this definition"></a></dt>
+<dd><p>This function get for all files, the value of all the keywords that are passed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>listfiles</strong><span class="classifier">lisr</span></dt><dd><p>list, with file names (string, path included)</p>
+</dd>
+<dt><strong>listkeys</strong><span class="classifier">list</span></dt><dd><p>list, of keywords (strings)</p>
+</dd>
+<dt><strong>grep</strong><span class="classifier">list</span></dt><dd><p>list of string, if not false, the grepping valueS
+will be compared to all the values
+of the keywords. If all grepping values appear in the
+header of one file the file will be kept</p>
+</dd>
+<dt><strong>exact</strong><span class="classifier">bool</span></dt><dd><p>if the exact keyword from the user must be retrieved. If not,
+any keyword containing the requested keyword will be used.</p>
+</dd>
+<dt><strong>HDU</strong><span class="classifier">int</span></dt><dd><p>extension number to look in. Default is primary: 0</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>file_dict</strong><span class="classifier">dictionary</span></dt><dd><p>dictionary, keys=filename &amp; values=dictionnary of keyword-value pairs</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>dfitsort([file1, file2], [key1, key2]) &lt;– no grep</p>
+<p>dfitsort([file1, file2], [key1, key2], [‘match’, ‘match2’]) &lt;– multi grep</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dfitspy.readfits.get_all_keyword">
+<span class="sig-prename descclassname"><span class="pre">dfitspy.readfits.</span></span><span class="sig-name descname"><span class="pre">get_all_keyword</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thefile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HDU</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dfitspy.readfits.get_all_keyword" title="Link to this definition"></a></dt>
+<dd><p>This function gets all the keyword in the header of the file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>thefile     str</strong></dt><dd><p>path/and/file.txt</p>
+</dd>
+<dt><strong>HDU         int</strong></dt><dd><p>FITS extension number to get the keywords from</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>keywords    list</dt><dd><p>list of keywords (string)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="display-function">
-<h1>display function<a class="headerlink" href="#display-function" title="Link to this heading"></a></h1>
+<section id="module-dfitspy.display">
+<span id="display-function"></span><h1>display function<a class="headerlink" href="#module-dfitspy.display" title="Link to this heading"></a></h1>
+<p>dfitspy is a program aimed at reproducing the dfits program in python.
+This file codes the display in the terminal</p>
+<p>&#64;place: ESO - La Silla - Paranal Observatory
+&#64;author(s): Romain Thomas
+&#64;year(s): 2018-2020
+&#64;First version: 19.9-0
+&#64;Current version: 20.7.0
+&#64;Telescope(s): ALL
+&#64;Instrument(s): ALL
+&#64;Documentation url:
+&#64;Last review [date + name]: 2020-07-21 - Romain Thomas</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="dfitspy.display.dfitsort_view">
+<span class="sig-prename descclassname"><span class="pre">dfitspy.display.</span></span><span class="sig-name descname"><span class="pre">dfitsort_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values_dict</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dfitspy.display.dfitsort_view" title="Link to this definition"></a></dt>
+<dd><p>This function displays a-la-dfits the requested informations</p>
+<p>First we display the number of files that was found and then we
+display the header with keywords</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>values_dict</strong><span class="classifier">dictionnary</span></dt><dd><p>keys=filename &amp; values=dictionnary of keyword-value pair</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>None (prints in terminal)</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="dfitspy.display.keywords_view">
+<span class="sig-prename descclassname"><span class="pre">dfitspy.display.</span></span><span class="sig-name descname"><span class="pre">keywords_view</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keywords</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dfitspy.display.keywords_view" title="Link to this definition"></a></dt>
+<dd><p>This function displays the list of keywords given in parameters.
+By default it displays it in a 3 columns display.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>keywords</strong><span class="classifier">list</span></dt><dd><p>list of keywords (each keyword is a string)</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>None (display in terminal)</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="tests-module">
-<h1>tests module<a class="headerlink" href="#tests-module" title="Link to this heading"></a></h1>
+<section id="module-dfitspy.tests">
+<span id="tests-module"></span><h1>tests module<a class="headerlink" href="#module-dfitspy.tests" title="Link to this heading"></a></h1>
+<p>This file organises the tests of the library</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="dfitspy.tests.test">
+<span class="sig-prename descclassname"><span class="pre">dfitspy.tests.</span></span><span class="sig-name descname"><span class="pre">test</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#dfitspy.tests.test" title="Link to this definition"></a></dt>
+<dd><p>This function calls the test of each module and run them</p>
+</dd></dl>
+
 </section>
 
 

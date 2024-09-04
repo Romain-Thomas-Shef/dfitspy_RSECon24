@@ -55,7 +55,13 @@ dfitspy does not read data inside fits file. Other libraries are doing this very
 
 ----
 
+**Contribute!**
+dfitspy is not perfect! It has been primarily developed for my private research and I decided to release i
+n the spirit of making the research process as transparent as possible and in the hope it can be used by
+other people. If you have any comment or anything you would like to be added to dfitspy, or, even better,
+if you want to modify it, you can either do it yourself or please feel free to contact me! ---> **rthomas@eso.org, the.spartan.proj@gmail.com**. In any case, you can find the source code `here <https://github.com/astrom-tom/dfitspy>`_.
 
+----
 
 .. warning::
 
